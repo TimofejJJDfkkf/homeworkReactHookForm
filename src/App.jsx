@@ -45,9 +45,9 @@ export default function App() {
       </div>
 
       <select {...register("sex")}>
-        <option value="female">female</option>
-        <option value="male">male</option>
-        <option value="other">other</option>
+        <option value="female">Женщина</option>
+        <option value="male">Мужчина</option>
+        <option value="other">Другое</option>
       </select>
 
       <div>
