@@ -1,7 +1,17 @@
 import { useForm } from "react-hook-form"
 
 export default function App() {
-  const { register, handleSubmit, formState: { errors } } = useForm()
+  const { register, handleSubmit, formState: { errors } } = useForm({
+  defaultValues: {
+    firstName: "",
+    secondName: "",
+    sex: "male",
+    email: "",
+    password: "",
+    phone: ""
+  }
+})
+
   const onSubmit = (data) => console.log(data)
 
   return (
@@ -34,6 +44,12 @@ export default function App() {
         {errors.secondName && <p>{errors.secondName.message}</p>}
       </div>
 
+      <select {...register("sex")}>
+        <option value="female">female</option>
+        <option value="male">male</option>
+        <option value="other">other</option>
+      </select>
+
       <div>
         <input {...register("email", {
           required: "Заполните email",
@@ -48,7 +64,7 @@ export default function App() {
       </div>
 
       <div>
-        <input {...register("passpord", {
+        <input {...register("password", {
           required: "Заполните Пароль",
           pattern: {
             value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
@@ -57,11 +73,11 @@ export default function App() {
         })} 
         placeholder = 'пароль'
         /> 
-        {errors.passpord && <p>{errors.passpord.message}</p>}
+        {errors.password && <p>{errors.password.message}</p>}
       </div>
 
       <div>
-        <input {...register("number", {
+        <input {...register("phone", {
           required: "Заполните номер",
           pattern: {
             value: /^\+?[1-9]\d{9,14}$/,
@@ -70,7 +86,7 @@ export default function App() {
         })} 
         placeholder = 'Номер телефона'
         /> 
-        {errors.number && <p>{errors.number.message}</p>}
+        {errors.phone && <p>{errors.phone.message}</p>}
       </div>
 
       <input type="submit" />
@@ -78,5 +94,3 @@ export default function App() {
     </>
   )
 }
-
-
