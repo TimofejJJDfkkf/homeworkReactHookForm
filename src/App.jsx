@@ -5,7 +5,7 @@ export default function App() {
   defaultValues: {
     firstName: "",
     secondName: "",
-    sex: "male",
+    sex: "",
     email: "",
     password: "",
     phone: ""
