@@ -20,11 +20,12 @@ export default function App() {
 		<>
 			<h1>Вход</h1>
 			<form onSubmit={handleSubmit(onSubmit)}>
+				
 				<FormInput
 					register={register}
 					name="firstName"
 					placeholder="Имя"
-					rules={{
+					validation={{
 						required: "Заполните имя",
 						pattern: {
 							value: /^[A-Za-zА-Яа-яЁё]+$/,
@@ -38,7 +39,7 @@ export default function App() {
 					register={register}
 					name="secondName"
 					placeholder="Фамилия"
-					rules={{
+					validation={{
 						required: "Заполните фамилию",
 						pattern: {
 							value: /^[A-Za-zА-Яа-яЁё]+$/,
@@ -54,7 +55,7 @@ export default function App() {
 					register={register}
 					name="email"
 					placeholder="Почта"
-					rules={{
+					validation={{
 						required: "Заполните email",
 						pattern: {
 							value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
@@ -68,7 +69,7 @@ export default function App() {
 					register={register}
 					name="password"
 					placeholder="пароль"
-					rules={{
+					validation={{
 						required: "Заполните пароль",
 						pattern: {
 							value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
@@ -82,7 +83,7 @@ export default function App() {
 					register={register}
 					name="phone"
 					placeholder="Номер телефона"
-					rules={{
+					validation={{
 						required: "Заполните номер",
 						pattern: {
 							value: /^\+?[1-9]\d{9,14}$/,
